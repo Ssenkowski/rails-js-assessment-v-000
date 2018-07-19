@@ -52,6 +52,12 @@ class PublishersController < ApplicationController
     view_publisher
     set_congregation
     set_service_bag
+    @publishers = Publisher.all
+
+    respond_to do |f|
+      f.html
+      f.json {render json: {publisher: @publisher, territories: @view_publisher.territories, congregation: @congregation, bag: @bag } }
+    end
   end
 
   private

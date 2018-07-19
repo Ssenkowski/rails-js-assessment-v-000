@@ -8,5 +8,5 @@
     <%= user.admin %>
   <br><br>
   <%= button_to 'Edit publisher', edit_publisher_path(p.id), :method => :get %><br>
-  <%= button_to "View publisher's territories", publisher_path(p.id), :method => :get %><br><br>
+  <%= link_to "View publisher's territories", publisher_path(p.id), class:"territories", id: "publisher-#{p.id}", data: {id: p.id} %><br><br>
 <%end%>
