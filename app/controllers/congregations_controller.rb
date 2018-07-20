@@ -42,6 +42,11 @@ class CongregationsController < ApplicationController
     else !set_congregation_by_publisher
       redirect_to congregations_path
     end
+
+    respond_to do |f|
+      f.html
+      f.json {render json: @congregation}
+    end
   end
 
   private
