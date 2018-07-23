@@ -5,9 +5,13 @@ $(document).ready(function() {
 function attachListeners() {
   $(".territories").on('click', function(e) {
     e.preventDefault()
-    const id = $(this).data('id')
+    const id = $(this).data('id');
     console.log('data id is', id);
-    const token = ''
+    debugger
+    ---------------------
+    //const token = '';
+    //How can I authenticate that this is the user via fetch and not return a 401?
+    --------------------
     fetch(`http://localhost:3000/publishers/${id}.json`, {
       headers: {
         Authorization: `token ${token}`

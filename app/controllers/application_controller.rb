@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
     @congregation = Congregation.find_by_id(params[:id])
     @congregation
   end
+
+  @fbUserToken = ""
 end

@@ -4,7 +4,10 @@ class PublishersController < ApplicationController
   def index
     @publishers = Publisher.all
 
-    render :index
+    respond_to do |f|
+      f.html
+      f.json {render json: @publishers} 
+    end
   end
 
   def new

@@ -36,6 +36,7 @@ gem 'devise'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'jwt', '~> 1.5.6'
 
 gem 'active_model_serializers'
 # Use Capistrano for deployment
