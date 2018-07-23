@@ -3,7 +3,7 @@ $(document).ready(function() {
 });
 
 function attachListeners() {
-  $("#publishers").on('click', function(e) {
+  $(".territories").on('click', function(e) {
     e.preventDefault()
     fetch(`http://localhost:3000/publishers.json`)
     .then(res => res.json())

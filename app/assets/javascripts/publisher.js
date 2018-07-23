@@ -7,14 +7,11 @@ function attachListeners() {
     e.preventDefault()
     const id = $(this).data('id');
     console.log('data id is', id);
-    debugger
-    ---------------------
-    //const token = '';
     //How can I authenticate that this is the user via fetch and not return a 401?
-    --------------------
+
     fetch(`http://localhost:3000/publishers/${id}.json`, {
       headers: {
-        Authorization: `token ${token}`
+
       }
     })
     .then(res => res.json())
