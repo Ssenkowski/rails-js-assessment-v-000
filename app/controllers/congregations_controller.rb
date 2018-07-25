@@ -45,7 +45,7 @@ class CongregationsController < ApplicationController
 
     respond_to do |f|
       f.html
-      f.json {render json: @congregation}
+      f.json {render json: @publishers}
     end
   end
 
