@@ -2,6 +2,11 @@ class TerritoriesController < ApplicationController
 
   def index
     @territories = Territory.all
+
+    respond_to do |f|
+      f.html
+      f.json {render json: @territories} 
+    end
   end
 
   def new

@@ -2,10 +2,15 @@ class CongregationsController < ApplicationController
   def index
     #Allow all users to see this page
     @congregations = Congregation.all
-  if current_publisher
+    if current_publisher
       set_congregation_by_publisher
     else
       redirect_to new_publisher_path
+    end
+
+    respond_to do |f|
+      f.html
+      f.json {render json: @congregations}
     end
   end
 

@@ -6,4 +6,8 @@
   <%= render "add_publisher_id" %>
 <% else %>
   <%= link_to 'Add an available Territory to your bag', "/congregations/#{@publisher.congregation_id}/territories" %><br><br>
+    <% if current_user.admin? %>
+      <%= link_to 'View all congregations', congregations_path %><br><br>
+      <%= link_to 'Add a new congregation', new_congregation_path %><br><br>
+    <% end %>
 <% end %>
