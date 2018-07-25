@@ -5,7 +5,7 @@ class TerritoriesController < ApplicationController
 
     respond_to do |f|
       f.html
-      f.json {render json: @territories} 
+      f.json {render json: @territories}
     end
   end
 

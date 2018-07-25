@@ -15,4 +15,13 @@ function attachListeners() {
       };
     })
   })
+  // const url = $(".new").attr("href").json
+
+    $(".new").on('click', function(e) {
+      e.preventDefault()
+
+    $.get(`http://localhost:3000/congregations/1/territories/new.json`, function(data) {
+      console.log(data);
+    })
+  })
 }
