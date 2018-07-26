@@ -1,9 +1,6 @@
 $(document).ready(function() {
-  attachListeners();
-});
 //Requirement 2
-function attachListeners() {
-  $(".territories").on('click', function(e) {
+  $(".publishers").on('click', function(e) {
     e.preventDefault()
 
     $.get(`http://localhost:3000/publishers.json`, function(data) {
@@ -14,8 +11,23 @@ function attachListeners() {
         btn.setAttribute("href", `${`http://localhost:3000/publishers/${data[x].id}.json`}`)
         document.body.appendChild(btn);
       };
+    });
+  });
+      // Requirement 3
+        $(".congregations").on('click', function(e) {
+          e.preventDefault()
+          $.get(`http://localhost:3000/congregations.json`, function(data) {
+            console.log(data);
+            for (x in data) {
+              let t = document.createTextNode(`${data[x].name}`)
+              let btn = document.createElement("BUTTON");
+              btn.appendChild(t);
+              document.body.appendChild(btn);
+            };
+          })
+        })
       //Requirement 4
-      $('button').click(function() {
+      $("button").click(function() {
           $.get(($(this).attr("href")), function(data){
             for (x in data.territories) {
               if (data.territories[x].signed_out === "true"){
@@ -24,15 +36,19 @@ function attachListeners() {
                 btn.appendChild(t);
                 document.body.appendChild(btn);
               }
-            };;
+            };
           });
         });
-
+        //Requirement 5
         $("#new_territory").submit( function(e){
           e.preventDefault();
-
-          console.log( $(this).serialize());
-          })
-        })
-      });
-  }
+          $.ajax({
+            type: this.method,
+            url:  this.action,
+            data: $(this).serialize(),
+            success: function(response){
+              alert(response)
+            }
+          });
+        });
+  })
