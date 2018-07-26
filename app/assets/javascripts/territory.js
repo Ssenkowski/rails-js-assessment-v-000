@@ -23,11 +23,11 @@ $(document).ready(function() {
               let btn = document.createElement("BUTTON");
               btn.appendChild(t);
               document.body.appendChild(btn);
-            };
-          })
-        })
+            }
+          });
+        });
       //Requirement 4
-      $("button").click(function() {
+      $(document.body).on('click', 'button', function() {
           $.get(($(this).attr("href")), function(data){
             for (x in data.territories) {
               if (data.territories[x].signed_out === "true"){
@@ -39,16 +39,16 @@ $(document).ready(function() {
             };
           });
         });
-        //Requirement 5
-        $("#new_territory").submit( function(e){
-          e.preventDefault();
-          $.ajax({
-            type: this.method,
-            url:  this.action,
-            data: $(this).serialize(),
-            success: function(response){
-              alert(response)
-            }
-          });
-        });
+      //  Requirement 5
+        // $("#new_territory").submit( function(e){
+        //   e.preventDefault();
+        //   $.ajax({
+        //     type: this.method,
+        //     url:  this.action,
+        //     data: $(this).serialize(),
+        //     success: function(response){
+        //       alert(response)
+        //     }
+        //   });
+        // });
   })
