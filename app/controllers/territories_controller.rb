@@ -17,6 +17,11 @@ class TerritoriesController < ApplicationController
       flash[:notice] = "Sorry your not authorized to do this, if there are not territories please talk to your territory servant or overseer."
       redirect_to publisher_path(current_user.publisher_id)
     end
+
+    respond_to do |f|
+      f.html
+      f.json {render json: @territory}
+    end
   end
 
   def create
