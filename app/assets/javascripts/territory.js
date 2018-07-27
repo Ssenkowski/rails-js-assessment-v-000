@@ -39,6 +39,7 @@ $(document).ready(function() {
             };
           });
         });
+
       //  Requirement 5
         $("#new_territory").submit( function(e){
           e.preventDefault();
@@ -47,7 +48,11 @@ $(document).ready(function() {
             url:  this.action,
             data: $(this).serialize(),
             success: function(response){
-              alert(response)
+              let t = document.createTextNode(`${response.number + " - " + response.designation}`)
+              let btn = document.createElement("BUTTON");
+              btn.appendChild(t);
+              document.body.appendChild(btn);
+              alert(`Territory ${response.number} was created!`)
             }
           });
         });

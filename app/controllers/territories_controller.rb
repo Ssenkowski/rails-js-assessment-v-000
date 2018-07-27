@@ -30,10 +30,11 @@ class TerritoriesController < ApplicationController
     @territory.congregation_id = params[:congregation_id]
     if @territory.save
 
-      redirect_to "/congregations/#{@congregation.id}/territories"
+      render json: @territory.to_json(only: [:number, :designation, :id])
     else
       render "new"
     end
+
   end
 
   def update
