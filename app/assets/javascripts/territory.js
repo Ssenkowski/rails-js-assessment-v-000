@@ -1,5 +1,21 @@
-$(document).ready(function() {
+// Requirement 5 and 6
+class Territory {
+  constructor(id, number, designation) {
+    this.id = id;
+    this.number = number;
+    this.designation = designation;
+  }
+
+  cardAttributes() {
+    let t = document.createTextNode(`${this.number + " - " + this.designation}`)
+    let btn = document.createElement("BUTTON");
+    btn.appendChild(t);
+    document.body.appendChild(btn);
+    alert(`Territory ${this.number} was created!`)  }
+}
+
 //Requirement 2
+$(document).ready(function() {
   $(".publishers").on('click', function(e) {
     e.preventDefault()
 
@@ -26,6 +42,7 @@ $(document).ready(function() {
             }
           });
         });
+        
       //Requirement 4
       $(document.body).on('click', 'button', function() {
           $.get(($(this).attr("href")), function(data){
@@ -48,11 +65,9 @@ $(document).ready(function() {
             url:  this.action,
             data: $(this).serialize(),
             success: function(response){
-              let t = document.createTextNode(`${response.number + " - " + response.designation}`)
-              let btn = document.createElement("BUTTON");
-              btn.appendChild(t);
-              document.body.appendChild(btn);
-              alert(`Territory ${response.number} was created!`)
+              // Requirement 5 and 6
+              var newTerritory = new Territory(response.id, response.number, response.designation)
+              newTerritory.cardAttributes()
             }
           });
         });
