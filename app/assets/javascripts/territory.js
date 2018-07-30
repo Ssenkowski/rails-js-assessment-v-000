@@ -7,9 +7,11 @@ class Territory {
   }
 
   cardAttributes() {
+    let cId = $(".congregation_id")[0].innerHTML
     let t = document.createTextNode(`${this.number + " - " + this.designation}`)
     let btn = document.createElement("BUTTON");
     btn.appendChild(t);
+    btn.setAttribute("onclick", `location.href='${`http://localhost:3000/congregations/${cId}/territories/${this.id}`}'`)
     document.body.appendChild(btn);
     alert(`Territory ${this.number} was created!`)
   }

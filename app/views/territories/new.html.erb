@@ -1,4 +1,5 @@
-<h2> Add a new Territory </h2>
+<h2> Add a new Territory to <%=@congregation.name%>  </h2><p class="congregation_id"><%=@congregation.id%></p>
+
 <br>
 
 <%= render "territories/new_territory_form", locals: {territory: @territory, congregation: @congregation} %>
