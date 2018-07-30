@@ -40,12 +40,16 @@ class CongregationsController < ApplicationController
   end
 
   def show
-    if current_publisher
-      set_congregation_by_publisher
-    elsif !current_publisher
-      redirect_to new_publisher_path
-    else !set_congregation_by_publisher
-      redirect_to congregations_path
+    if !current_user.admin?
+      if current_publisher
+        set_congregation_by_publisher
+      elsif !current_publisher
+        redirect_to new_publisher_path
+      else !set_congregation_by_publisher
+        redirect_to congregations_path
+      end
+    else
+      set_congregation_by_id
     end
 
     respond_to do |f|
@@ -68,5 +72,9 @@ class CongregationsController < ApplicationController
 
   def set_congregation_by_publisher
     @congregation = Congregation.find_by_id(@publisher.congregation_id)
+  end
+
+  def set_congregation_by_id
+    @congregation = Congregation.find_by_id(params[:id])
   end
 end

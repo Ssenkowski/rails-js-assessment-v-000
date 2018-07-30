@@ -4,24 +4,30 @@
   <strong>  Residential Territories:<br><br></strong>
     <% @territories.each do |t| %>
       <% if t.signed_out != "true" %>
-        <% if t.designation == "Residential" %>
-          <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+        <% if t.congregation_id == params[:congregation_id].to_i %>
+          <% if t.designation == "Residential" %>
+            <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+          <%end%>
         <%end%>
       <%end%>
     <%end%>
   <strong>  Business Territories:<br><br></strong>
     <% @territories.each do |t| %>
       <% if t.signed_out != "true" %>
-        <% if t.designation == "Business" %>
-          <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+        <% if t.congregation_id == params[:congregation_id].to_i %>
+          <% if t.designation == "Business" %>
+            <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+          <%end%>
         <%end%>
       <%end%>
     <%end%>
     <strong>  Writing Territories:<br><br></strong>
       <% @territories.each do |t| %>
         <% if t.signed_out != "true" %>
-          <% if t.designation == "Writing" %>
-            <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+          <% if t.congregation_id == params[:congregation_id].to_i %>
+            <% if t.designation == "Writing" %>
+              <%= button_to "##{t.number}", "/congregations/#{t.congregation_id}/territories/#{t.id}", :method => :get %>  <br>
+            <%end%>
           <%end%>
         <%end%>
       <%end%>
