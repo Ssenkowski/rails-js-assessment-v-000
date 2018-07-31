@@ -31,6 +31,7 @@ $(document).ready(function() {
           let btn = document.createElement("Button");
           btn.appendChild(p);
           btn.setAttribute("href", `${`http://localhost:3000/publishers/${data[x].id}.json`}`)
+          btn.style.color = "black"
           document.body.appendChild(btn);
         }
       };
@@ -52,8 +53,18 @@ $(document).ready(function() {
   });
 
   //Requirement 4
-  $(document.body).one('click', 'button', function() {
-    $.get(($(this).attr("href")), function(data) {
+  $(document.body).on('click', 'button', function() {
+    $("ol").empty()
+    //let clicked_button = this.
+    // Highlight the publisher's button that's been clicked.
+      // if (this.style.color == "black") {
+      //   for (x in $("button")){
+      //     this.style.color = "black"
+      //   }
+      //   this.style.color = "blue"
+      // }
+
+     $.get(($(this).attr("href")), function(data) {
       for (x in data.territories) {
         if (data.territories[x].signed_out === "true") {
           let t = document.createTextNode(`${data.territories[x].number + " " + data.territories[x].designation}`)
