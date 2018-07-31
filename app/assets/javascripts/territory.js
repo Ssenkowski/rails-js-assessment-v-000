@@ -19,7 +19,7 @@ class Territory {
 
 //Requirement 2
 $(document).ready(function() {
-  $(".publishers").on('click', function(e) {
+  $(".publishers").one('click', function(e) {
     e.preventDefault()
 
     $.get(`http://localhost:3000/publishers.json`, function(data) {
@@ -35,7 +35,7 @@ $(document).ready(function() {
     });
   });
   // Requirement 3
-  $(".congregations").on('click', function(e) {
+  $(".congregations").one('click', function(e) {
     e.preventDefault()
     $.get(`http://localhost:3000/congregations.json`, function(data) {
       console.log(data);
@@ -50,7 +50,7 @@ $(document).ready(function() {
   });
 
   //Requirement 4
-  $(document.body).on('click', 'button', function() {
+  $(document.body).one('click', 'button', function() {
     $.get(($(this).attr("href")), function(data) {
       for (x in data.territories) {
         if (data.territories[x].signed_out === "true") {
