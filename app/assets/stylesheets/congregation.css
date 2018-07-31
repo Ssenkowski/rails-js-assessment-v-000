@@ -25,8 +25,8 @@ p.congregation_id {
 #created_territory {
   position: absolute;
   transition: .5s ease;
-  top: 37%;
-  left: 44%;
+  left: 45%;
+  margin-top: 20px;
   font-size: 13px;
 }
 
