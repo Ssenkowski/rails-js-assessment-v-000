@@ -1,4 +1,5 @@
-// Requirement 5 and 6
+//Requirement 5 and 6
+//ES6 syntax
 class Territory {
   constructor(id, number, designation) {
     this.id = id;
@@ -18,6 +19,25 @@ class Territory {
     alert(`Territory ${this.number} was created!`)
   }
 }
+//
+// function Territory(id, number, designation) {
+//     this.id = id;
+//     this.number = number;
+//     this.designation = designation;
+//   }
+//
+// Territory.prototype.cardAttributes = function() {
+//     let cId = $(".congregation_id")[0].innerHTML
+//     let t = document.createTextNode(`${this.number + " - " + this.designation}`)
+//     let btn = document.createElement("BUTTON");
+//     btn.appendChild(t);
+//     btn.setAttribute("onclick", `location.href='${`http://localhost:3000/congregations/${cId}/territories/${this.id}`}'`)
+//     btn.setAttribute("id", "created_territory");
+//
+//     document.body.appendChild(btn);
+//     alert(`Territory ${this.number} was created!`)
+//   }
+
 
 //Requirement 2
 $(document).ready(function() {
@@ -65,6 +85,11 @@ $(document).ready(function() {
       // }
 
      $.get(($(this).attr("href")), function(data) {
+
+       data.territories.sort(function(a,b){
+         return (a.number - b.number)
+        })
+
       for (x in data.territories) {
         if (data.territories[x].signed_out === "true") {
           let t = document.createTextNode(`${data.territories[x].number + " " + data.territories[x].designation}`)
