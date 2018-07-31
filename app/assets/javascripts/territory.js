@@ -78,7 +78,7 @@ $(document).ready(function() {
           var newTerritory = new Territory(response.id, response.number, response.designation)
           newTerritory.cardAttributes()
         } else {
-          alert(`The territory was not created!  Please enter a valid territory number and designation`)
+          alert(`The territory was not created!  Please refresh the page and enter a valid territory number and designation`)
         }
       }
     });
