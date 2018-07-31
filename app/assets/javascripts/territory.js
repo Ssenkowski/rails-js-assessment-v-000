@@ -12,6 +12,8 @@ class Territory {
     let btn = document.createElement("BUTTON");
     btn.appendChild(t);
     btn.setAttribute("onclick", `location.href='${`http://localhost:3000/congregations/${cId}/territories/${this.id}`}'`)
+    btn.setAttribute("id", "created_territory");
+
     document.body.appendChild(btn);
     alert(`Territory ${this.number} was created!`)
   }
@@ -72,8 +74,12 @@ $(document).ready(function() {
       data: $(this).serialize(),
       success: function(response) {
         // Requirement 5 and 6
-        var newTerritory = new Territory(response.id, response.number, response.designation)
-        newTerritory.cardAttributes()
+        if (response.number != undefined || response.designation != undefined) {
+          var newTerritory = new Territory(response.id, response.number, response.designation)
+          newTerritory.cardAttributes()
+        } else {
+          alert(`The territory was not created!  Please enter a valid territory number and designation`)
+        }
       }
     });
   });

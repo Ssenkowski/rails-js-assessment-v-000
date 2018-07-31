@@ -21,3 +21,21 @@ a:-webkit-any-link {
 p.congregation_id {
   visibility: hidden;
 }
+
+#created_territory {
+  position: absolute;
+  transition: .5s ease;
+  top: 37%;
+  left: 44%;
+  font-size: 13px;
+}
+
+input[type="submit" i] {
+  font-size: 16px;
+  margin-top: 15px;
+}
+
+button {
+  font-size: 13px;
+  margin-left: 15px;
+}
