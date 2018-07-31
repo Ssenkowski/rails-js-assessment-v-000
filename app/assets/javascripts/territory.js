@@ -90,6 +90,7 @@ $(document).ready(function() {
           newTerritory.cardAttributes()
         } else {
           alert(`The territory was not created!  Please refresh the page and enter a valid territory number and designation`)
+          //How can I refresh the submit button without refreshing the page so as to resubmit the form?
         }
       }
     });
